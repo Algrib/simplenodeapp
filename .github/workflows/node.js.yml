@@ -15,9 +15,14 @@ jobs:
         env:
           MY_VAR: HI there! my name is
           FIRST_NAME: Al
-          MIDDLE: G
-          LAST: RIB
+          MIDDLE_NAME: G
+          LAST_NAME: RIB
         run: echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME
       - name: my second job
         if: success()
         run: echo "The previous step finished successfully"
+      - name: my third step
+        uses: actions/checkout@v1
+        with:
+          node-version: 12
+          registry-url: https://npm.pkg.github.com/
